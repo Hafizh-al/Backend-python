@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"
+        />
+        <title>Halaman dari Template!</title>
+
+        <!-- Memanggil CSS eksternal dengan cara Flask -->
+        <link
+         rel="stylesheet" 
+         href="{{ url_for('static', filename='css/style.css') }}"
+        />
+    </head>
+    <body>
+        <h1>Selamat Datang di Website Pertama!, Ini Datang dari File HTML Sungguhan!</h1>
+        <h2>Website pertamaku dengan Python & Flask!</h2>
+        <p>Dan gayanya diatur oleh file CSS eksternal.</p>
+        <a href="/profil">Pergi ke Profil</a>
+    </body>
+</html>
