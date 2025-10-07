@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <title>Daftar Teman</title>
+    </head>
+    <body>
+        <h1>Daftar Temanku</h1>
+
+        {% if teman %}
+            <ul>
+                {% for t in teman %}
+                    <li>{{ t }}</li>
+                {% endfor %}    
+            </ul>
+        {% else %}
+            <p>Mana temenmu</p>
+        {% endif %} 
+        
+        <a href="/">Home</a>
+        <a href="/profil">Profil</a>
+        <a href="/about">About</a>
+        <a href="/teman">Friends</a>
+        <a href="/base">Base</a>
+    </body>
+</html>

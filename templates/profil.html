@@ -1,16 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Halaman Profil</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
-<body>
-  <div class="profil-card">
-    <h2>Profil Saya</h2>
-    <p>Assalamualaikum, Saya Muhammad Daffa Al Hafizh. Aku sedang belajar Flask.</p>
-    <p>Hobby : Coding & Learning</p>
-  </div>
-  <a href="/">Kembali ke Home</a>
-</body>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"
+        />
+        <title>My Profile</title>
+
+         <!-- Memanggil CSS eksternal dengan cara Flask -->
+        <link
+         rel="stylesheet" 
+         href="{{ url_for('static', filename='css/style.css') }}"
+        /> 
+    </head>
+    <body>
+      {% extends "base.html" %}
+      {% block content %}
+      <h1>Assalamualaikum Brothers, {{ user_name}}</h1>
+      <p>I am {{ user_age }}</p>      
+      <p>My Hobby are {{ user_hobby }}.</p>
+      <p>I study at {{ user_school }}.</p>
+      {% endblock %}
+
+      <a href="/">Home</a>
+      <a href="/profil">Profil</a>
+      <a href="/about">About</a>
+      <a href="/teman">Friends</a>
+      <a href="/base">Base</a>
+    </body>
 </html>
