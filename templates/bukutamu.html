@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    {% extends "base.html" %}
+    {% block content %}
+      <h1>Buku Tamu</h1>
+    
+      <form action="/bukutamu" method="POST">
+        <label>Nama:</label><br>
+        <input type="text" name="nama" required><br><br>
+    
+        <label>Pesan:</label><br>
+        <textarea name="pesan" required></textarea><br><br>
+    
+        <button type="submit">Kirim</button>
+      </form>
+    
+      {% if nama_terbaru and pesan_terbaru %}
+        <hr>
+        <h3>Pesan Terbaru:</h3>
+        <p>"{{ pesan_terbaru }}" — <em>{{ nama_terbaru }}</em></p>
+      {% endif %}
+    {% endblock %}
+
+</body>
+</html>

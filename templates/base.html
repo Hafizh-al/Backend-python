@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-    <title>Website Daffa</title>
-    <style>
-        body { font-family: Arial; background: #f0f0f0; margin: 0; padding: 0; }
-        nav { background: #333; color: white; padding: 10px; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; }
-        nav a:hover { text-decoration: underline; }
-        .content { padding: 20px; }
-    </style>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <nav>
-        <a href="/">Home</a>
-        <a href="/profil">Profil</a>
-        <a href="/about">About</a>
-        <a href="/teman">Friends</a>
-        <a href="/base">Base</a>
-    </nav>
 
-    <div class="content">
-        {% block content %}{% endblock %}
-    </div>
+    <header>
+        <h1>My Flask Website</h1>
+        <nav>
+            <a href="/">Beranda</a> |
+            <a href="/profil">Profil</a> |
+            <a href="/teman">Teman</a> |
+            <a href="/bukutamu">Buku Tamu</a>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Halaman lain akan menambahkan isi di sini -->
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>© 2025 HSI Flask Project</p>
+    </footer>
+
 </body>
 </html>
