@@ -1,0 +1,190 @@
+:root{
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --muted:#6b7280;
+  --accent:#0b74ff;
+  --accent-2:#0061c8;
+  --radius:12px;
+  --max-width:900px;
+  --shadow: 0 6px 18px rgba(16,24,40,0.06);
+  --glass: rgba(255,255,255,0.6);
+  --gap:18px;
+}
+
+/* ===== Global ===== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: linear-gradient(180deg,var(--bg) 0%, #eef3f9 100%);
+  color:#0f172a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:40px 20px;
+  line-height:1.5;
+}
+
+/* ===== Page wrapper ===== */
+.page {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+/* ===== Header / Title Card ===== */
+.header-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.9));
+  padding:28px 30px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+  border: 1px solid rgba(10, 20, 40, 0.03);
+}
+.header-card h1{
+  margin:0 0 6px;
+  font-size:28px;
+  letter-spacing:-0.3px;
+}
+.header-card p{ margin:0; color:var(--muted) }
+
+/* ===== Form Card ===== */
+.form-card{
+  background: var(--card);
+  padding:22px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 22px;
+  border: 1px solid rgba(10, 20, 40, 0.03);
+}
+.form-row{ margin-bottom:14px; }
+label{
+  display:block;
+  font-weight:600;
+  margin-bottom:8px;
+  color:#0f172a;
+}
+input[type="text"], textarea {
+  width:100%;
+  padding:12px 14px;
+  border-radius:8px;
+  border:1px solid #e6e9ef;
+  background: linear-gradient(180deg,#fff,#fbfdff);
+  font-size:14px;
+  outline:none;
+  transition: box-shadow .15s ease, border-color .15s ease;
+  resize:vertical;
+}
+input[type="text"]:focus, textarea:focus{
+  box-shadow: 0 6px 18px rgba(11,116,255,0.12);
+  border-color: var(--accent);
+}
+
+/* Button primary */
+.btn {
+  display:inline-block;
+  padding:12px 18px;
+  border-radius:8px;
+  background: linear-gradient(180deg,var(--accent),var(--accent-2));
+  color:white;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+  width:100%;
+  text-align:center;
+  box-shadow: 0 8px 18px rgba(11,116,255,0.12);
+  transition: transform .08s ease, box-shadow .12s ease, opacity .12s;
+}
+.btn:active{ transform: translateY(1px) }
+.btn:disabled{ opacity:0.6; cursor:not-allowed }
+
+/* ===== Messages List ===== */
+.messages-wrap{
+  margin-top:18px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  align-items:center;
+}
+
+/* message card (modern) */
+.message{
+  width:100%;
+  max-width:720px;
+  background:var(--card);
+  border-radius:10px;
+  padding:14px;
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  box-shadow: 0 4px 12px rgba(8,15,30,0.04);
+  border-left:4px solid rgba(11,116,255,0.12);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.message:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 26px rgba(8,15,30,0.08);
+}
+
+/* avatar circle with initials (if you add <div class="avatar">AB</div>) */
+.avatar{
+  flex:0 0 52px;
+  height:52px;
+  border-radius:50%;
+  background: linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:16px;
+  box-shadow: 0 6px 18px rgba(11,116,255,0.12);
+}
+
+/* message body */
+.message-body{ flex:1 }
+.message-meta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:6px;
+}
+.author{
+  color:var(--accent-2);
+  font-weight:700;
+  text-decoration:none;
+}
+.time { color:var(--muted); font-size:13px }
+
+.message-text{
+  margin:0;
+  color:#111827;
+  padding-top:4px;
+  white-space:pre-wrap; /* keep linebreaks */
+}
+
+/* legacy fallback for .pesan-card used before */
+.pesan-card{
+  width:100%;
+  max-width:720px;
+  background:var(--card);
+  border-radius:8px;
+  padding:12px 16px;
+  box-shadow: 0 4px 10px rgba(8,15,30,0.03);
+  border-left:4px solid rgba(11,116,255,0.08);
+  margin:12px auto;
+}
+
+/* small screen */
+@media (max-width:640px){
+  .page{ padding:0 14px; }
+  .message{ padding:12px; gap:12px }
+  .avatar{ width:44px; height:44px; font-size:14px }
+  .header-card h1{ font-size:22px }
+}
+
+/* subtle appear animation */
+.fade-in { animation: fadeIn .28s ease both; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px) }
+  to { opacity: 1; transform: translateY(0) }
+}

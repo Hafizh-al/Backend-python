@@ -10,11 +10,6 @@ def halaman_utama():
     # 4. Tentukan apa yang harus ditampilkan di alamt ini
     return render_template('index.html')
 
-@app.route('/')
-def base():
-    # 4. Tentukan apa yang harus ditampilkan di alamt ini
-    return render_template('base.html')
-
 # 2. membuat halaman baru
 @app.route('/profil')
 def halaman_profil():
